@@ -1,0 +1,27 @@
+# Ignore build folders for common languages/projects
+build/
+Build/
+bin/
+Bin/
+out/
+Out/
+dist/
+Dist/
+target/
+Target/
+
+# Ignore .vscode folder
+.vscode/
+
+# Ignore build folders in subdirectories
+**/build/
+**/Build/
+**/bin/
+**/Bin/
+**/out/
+**/Out/
+**/dist/
+**/Dist/
+**/target/
+**/Target/
+**/.vscode/
