@@ -1,6 +1,5 @@
 #include "dummy_nodes.h"
 
-
 int main()
 {
   BT::BehaviorTreeFactory factory;
