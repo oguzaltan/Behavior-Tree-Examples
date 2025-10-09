@@ -1,67 +1,53 @@
-# t06 — SubTree, Script and Ports example
+# t07 — Auto-registering subtrees from XML files
 
-This example demonstrates how to use subtrees, script nodes and ports/blackboards to pass data between trees.
-
-Highlights
-
-- Using a `SubTree` with port remapping (`target` / `result`).
-- Using `Script` nodes to set blackboard values.
-- Implementing custom node types with input ports (`MoveBase` and `SaySomething`).
-- Demonstrates automatic conversion from string to a custom type (`Pose2D`).
+This example demonstrates scanning a directory for BehaviorTree XML files, registering them with the factory, and running the main tree or individual subtrees.
 
 Files of interest
 
-- `bt_demo.cpp` — registers the example nodes, loads `bt_tree.xml` (contains `MainTree` and `MoveRobot` subtree), runs the tree and prints the blackboards of the subtrees.
-- `bt_tree.xml` — the XML tree with `MainTree` that sets `move_goal`, calls the `MoveRobot` subtree and says the result; `MoveRobot` contains a `MoveBase` action and fallback/force-failure handling.
-- `dummy_nodes.h` — contains `SaySomething`, `MoveBaseAction`, a `Pose2D` converter and helper functions used by the example.
-- `CMakeLists.txt` — builds the `bt_simple_pick` executable and links to BehaviorTree.CPP.
+- `bt_demo.cpp` — registers the `SaySomething` node and registers any `.xml` trees found in the current folder.
+- `bt_tree.xml` — the main tree that references `SubTreeA` and `SubTreeB`.
+- `subtree_A.xml`, `subtree_B.xml` — the subtree definitions.
+- `dummy_nodes.h` — contains the `SaySomething` node implementation used by the trees.
+- `CMakeLists.txt` — builds the example executable `bt_simple_pick`.
 
 Build (WSL / Bash)
 
-From the repository root:
-
 ```bash
-cmake -S t06 -B t06/build
-cmake --build t06/build --parallel
+cmake -S t07 -B t07/build
+cmake --build t07/build --parallel
 ```
 
 Run
 
 ```bash
-./t06/build/bt_simple_pick
+./t07/build/bt_simple_pick
 ```
 
-Expected output (approximate)
+Expected output
 
-When the program runs it prints action progress and the state of the two subtree blackboards. The `bt_demo.cpp` file contains an example expected output comment; the important lines look like:
+When you run the example you should see a small warning (if your XML files don't include the BTCPP format attribute) and the example `SaySomething` outputs:
 
 ```bash
-[ MoveBase: SEND REQUEST ]. goal: x=1.000000 y=2.000000 theta=3.000000
-[ MoveBase: FINISHED ]
-Robot says: goal reached
-
------- First BB ------
-move_result (std::string)
-move_goal (Pose2D)
-
------- Second BB------
-[result] remapped to port of parent tree [move_result]
-[target] remapped to port of parent tree [move_goal]
+Warnings: The first tag of the XML (<root>) should contain the attribute [BTCPP_format="4"]
+Please check if your XML is compatible with version 4.x of BT.CPP
+----- MainTree tick ----
+Robot says: starting MainTree
+Robot says: Executing Sub_A
+Robot says: Executing Sub_B
+----- SubA tick ----
+Robot says: Executing Sub_A
 ```
 
-Troubleshooting
+Notes and troubleshooting
 
-- If CMake cannot find BehaviorTree.CPP, pass the install location:
+- XML format warning: Add `BTCPP_format="4"` to the `<root>` element to silence the warning:
 
-```bash
-cmake -S t06 -B t06/build -DCMAKE_PREFIX_PATH=/path/to/behaviortree/install
+```xml
+<root BTCPP_format="4">
+  ...
+</root>
 ```
 
-- If you edited `dummy_nodes.h` and added new `.cpp` files, make sure to add them to `CMakeLists.txt` so they are compiled and linked.
+- If `std::filesystem::directory_iterator` is not available on your compiler/libstdc++, use a fixed list of filenames or upgrade your toolchain (GCC 9+ / clang with C++17 support).
 
-- If you run into XML parsing errors, confirm the demo uses `registerBehaviorTreeFromFile("./../bt_tree.xml")` (the code loads a file path, not raw XML text).
-
-Notes
-
-- The example includes a template specialization that converts a semicolon-separated string into a `Pose2D` value so that the `MoveBase` node can accept `goal="1;2;3"` in the XML.
-- The subtree mechanism demonstrates port remapping: `SubTree ID="MoveRobot" target="{move_goal}" result="{move_result}"` maps parent / child ports.
+- If you add new node implementations in separate `.cpp` files, remember to add them to `CMakeLists.txt` so they are compiled and linked.
