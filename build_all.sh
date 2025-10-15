@@ -30,22 +30,28 @@ done
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
 echo "Root: $ROOT_DIR"
 
-# Find example directories that contain a CMakeLists.txt
-mapfile -t EXAMPLES < <(find "$ROOT_DIR" -maxdepth 1 -type d -name 't*' -print0 | xargs -0 -n1 basename | sort)
+# Discover immediate subdirectories that contain a CMakeLists.txt (ignore hidden dirs)
+EXAMPLES=()
+for dir in "$ROOT_DIR"/*/; do
+  [ -d "$dir" ] || continue
+  base="$(basename "$dir")"
+  # skip hidden/system folders
+  [[ "$base" == .* ]] && continue
+  if [ -f "$dir/CMakeLists.txt" ]; then
+    EXAMPLES+=("$base")
+  fi
+done
+
+IFS=$'\n' EXAMPLES=( $(printf '%s\n' "${EXAMPLES[@]}" | sort) )
 
 if [ ${#EXAMPLES[@]} -eq 0 ]; then
-  echo "No example folders (t*) found in $ROOT_DIR" >&2
+  echo "No example folders with CMakeLists.txt found in $ROOT_DIR" >&2
   exit 1
 fi
 
 for d in "${EXAMPLES[@]}"; do
   SRC_DIR="$ROOT_DIR/$d"
   BUILD_DIR="$SRC_DIR/build"
-
-  if [ ! -f "$SRC_DIR/CMakeLists.txt" ]; then
-    echo "Skipping $d (no CMakeLists.txt)"
-    continue
-  fi
 
   echo "\n=== Building $d ==="
   echo "Configuring..."
@@ -60,4 +66,4 @@ for d in "${EXAMPLES[@]}"; do
   echo "Built $d -> $BUILD_DIR"
 done
 
-echo "\nAll done. Executables are in each example's build directory (e.g. t01/build/bt_simple_pick)."
+echo "\nAll done. Executables are in each example's build directory (e.g. <example>/build/bt_simple_pick)."
