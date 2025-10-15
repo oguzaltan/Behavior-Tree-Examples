@@ -35,9 +35,7 @@ What to expect
 
 Example printed output
 
-```
-Warnings: The first tag of the XML (<root>) should contain the attribute [BTCPP_format="4"]
-Please check if your XML is compatible with version 4.x of BT.CPP
+```text
 ----- MainTree tick ----
 Robot says: 42
 Robot says: 3.14
