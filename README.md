@@ -1,6 +1,6 @@
 # Behavior-Tree-Examples
 
-This repository contains small example projects that demonstrate how to use BehaviorTree.CPP (BehaviorTree.CPP v3+) with simple demo nodes and XML trees. Each example is provided in its own folder (now renamed with descriptive names like `01-simple-pick-sequence`, `02-say-think-blackboard`, etc.) and includes a `CMakeLists.txt`, `bt_demo.cpp`, `bt_tree.xml`, and `dummy_nodes.h` so you can build and run the demo easily.
+This repository contains small example projects that demonstrate how to use BehaviorTree.CPP (BehaviorTree.CPP v4+) with simple demo nodes and XML trees. Each example is provided in its own folder and includes a `CMakeLists.txt`, `bt_demo.cpp`, `bt_tree.xml`, and `dummy_nodes.h` so you can build and run the demo easily.
 
 These examples are intentionally small and focused on demonstrating BehaviorTree.CPP usage. Feel free to copy the example folders as a starting point for your own project.
 
@@ -87,7 +87,7 @@ Use the helper script to build every example folder that contains a `CMakeLists.
 ./build_all.sh -j $(nproc)
 ```
 
-On Windows PowerShell, you can run it under WSL or use the same commands in a Bash shell.
+On Windows PowerShell, you can run it under WSL.
 
 - Missing compiler or wrong C++ standard: The examples require C++17. Ensure your compiler supports `-std=c++17`.
 
