@@ -53,7 +53,15 @@ for d in "${EXAMPLES[@]}"; do
   SRC_DIR="$ROOT_DIR/$d"
   BUILD_DIR="$SRC_DIR/build"
 
-  echo "\n=== Building $d ==="
+  # Clean stale CMakeCache that points to a different source directory (e.g., after folder renames)
+  if [ -f "$BUILD_DIR/CMakeCache.txt" ]; then
+    if ! grep -q "$SRC_DIR" "$BUILD_DIR/CMakeCache.txt" 2>/dev/null; then
+      echo "Cleaning stale build dir for $d (cache does not match $SRC_DIR)"
+      rm -rf "$BUILD_DIR"
+    fi
+  fi
+
+  printf "\n=== Building %s ===\n" "$d"
   echo "Configuring..."
   if [ -n "$PREFIX" ]; then
     cmake -S "$SRC_DIR" -B "$BUILD_DIR" -DCMAKE_PREFIX_PATH="$PREFIX"
