@@ -8,7 +8,7 @@ Files of interest
 - `bt_tree.xml` — the main tree that references `SubTreeA` and `SubTreeB`.
 - `subtree_A.xml`, `subtree_B.xml` — the subtree definitions.
 - `dummy_nodes.h` — contains the `SaySomething` node implementation used by the trees.
-- `CMakeLists.txt` — builds the example executable `bt_simple_pick`.
+- `CMakeLists.txt` — builds the example executable `bt_07_autoregister_xml_subtrees`.
 
 Build (WSL / Bash)
 
@@ -20,9 +20,8 @@ cmake --build 07-autoregister-xml-subtrees/build --parallel
 Run
 
 ```bash
-./07-autoregister-xml-subtrees/build/bt_simple_pick
+./07-autoregister-xml-subtrees/build/bt_07_autoregister_xml_subtrees
 ```
-
 
 Expected output
 

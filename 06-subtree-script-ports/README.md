@@ -14,7 +14,7 @@ Files of interest
 - `bt_demo.cpp` — registers the example nodes, loads `bt_tree.xml` (contains `MainTree` and `MoveRobot` subtree), runs the tree and prints the blackboards of the subtrees.
 - `bt_tree.xml` — the XML tree with `MainTree` that sets `move_goal`, calls the `MoveRobot` subtree and says the result; `MoveRobot` contains a `MoveBase` action and fallback/force-failure handling.
 - `dummy_nodes.h` — contains `SaySomething`, `MoveBaseAction`, a `Pose2D` converter and helper functions used by the example.
-- `CMakeLists.txt` — builds the `bt_simple_pick` executable and links to BehaviorTree.CPP.
+- `CMakeLists.txt` — builds the `bt_06_subtree_script_ports` executable and links to BehaviorTree.CPP.
 
 Build (WSL / Bash)
 
@@ -28,7 +28,7 @@ cmake --build 06-subtree-script-ports/build --parallel
 Run
 
 ```bash
-./06-subtree-script-ports/build/bt_simple_pick
+./06-subtree-script-ports/build/bt_06_subtree_script_ports
 ```
 
 Expected output (approximate)

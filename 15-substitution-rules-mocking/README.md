@@ -75,7 +75,7 @@ cmake --build 15-substitution-rules-mocking/build --parallel
 ## Run
 
 ```bash
-./15-substitution-rules-mocking/build/bt_simple_pick
+./15-substitution-rules-mocking/build/bt_15_substitution_rules_mocking
 ```
 
 ## What you’ll see

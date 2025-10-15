@@ -66,4 +66,4 @@ for d in "${EXAMPLES[@]}"; do
   echo "Built $d -> $BUILD_DIR"
 done
 
-echo "\nAll done. Executables are in each example's build directory (e.g. <example>/build/bt_simple_pick)."
+echo "\nAll done. Executables are in each example's build directory (e.g. 01-simple-pick-sequence/build/bt_01_simple_pick_sequence)."

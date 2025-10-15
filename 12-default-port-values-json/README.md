@@ -58,13 +58,13 @@ This example shows multiple ways to provide default values for input ports, incl
 ```bash
 # from the repository root
 cmake -S 12-default-port-values-json -B 12-default-port-values-json/build
-cmake --build t12/build --parallel
+cmake --build 12-default-port-values-json/build --parallel
 ```
 
 ## Run
 
 ```bash
-./t12/build/bt_simple_pick
+./12-default-port-values-json/build/bt_12_default_port_values_json
 ```
 
 ## Expected output

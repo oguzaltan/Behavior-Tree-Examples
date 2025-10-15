@@ -20,7 +20,7 @@ cmake --build 01-simple-pick-sequence/build --parallel
 Run
 
 ```bash
-./01-simple-pick-sequence/build/bt_simple_pick
+./01-simple-pick-sequence/build/bt_01_simple_pick_sequence
 ```
 
 Notes

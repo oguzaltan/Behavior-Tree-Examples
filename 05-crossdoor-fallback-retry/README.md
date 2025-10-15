@@ -34,7 +34,7 @@ cmake --build 05-crossdoor-fallback-retry/build --parallel
 Run
 
 ```bash
-./05-crossdoor-fallback-retry/build/bt_simple_pick
+./05-crossdoor-fallback-retry/build/bt_05_crossdoor_fallback_retry
 ```
 
 Notes and troubleshooting

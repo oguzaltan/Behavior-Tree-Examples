@@ -13,7 +13,7 @@ Build & Run
 ```bash
 cmake -S 04-reactive-sequence-tick-loop -B 04-reactive-sequence-tick-loop/build
 cmake --build 04-reactive-sequence-tick-loop/build --parallel
-./04-reactive-sequence-tick-loop/build/bt_simple_pick
+./04-reactive-sequence-tick-loop/build/bt_04_reactive_sequence_tick_loop
 ```
 
 Notes

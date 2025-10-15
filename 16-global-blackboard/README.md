@@ -42,7 +42,7 @@ cmake --build 16-global-blackboard/build --parallel
 ## Run
 
 ```bash
-./16-global-blackboard/build/bt_simple_pick
+./16-global-blackboard/build/bt_16_global_blackboard
 ```
 
 ## Expected output (example)

@@ -13,7 +13,7 @@ Files
 - `bt_demo.cpp` — example program. Registers nodes and enums and runs the tree.
 - `bt_tree.xml` — the behavior tree. Contains `Script` nodes, a `Precondition`, and `SaySomething` actions.
 - `dummy_nodes.h` — custom node implementations used by the example (`SaySomething`, `MoveBaseAction`) and a helper type `Pose2D` converter.
-- `CMakeLists.txt` — builds the example executable `bt_simple_pick` (requires BehaviorTree.CPP installed).
+- `CMakeLists.txt` — builds the example executable `bt_09_scripting_enums_precondition` (requires BehaviorTree.CPP installed).
 
 Quick build & run (WSL / Bash)
 
@@ -21,7 +21,7 @@ Quick build & run (WSL / Bash)
 # from the repository root
 cmake -S 09-scripting-enums-precondition -B 09-scripting-enums-precondition/build
 cmake --build 09-scripting-enums-precondition/build --parallel
-./09-scripting-enums-precondition/build/bt_simple_pick
+./09-scripting-enums-precondition/build/bt_09_scripting_enums_precondition
 ```
 
 What to expect

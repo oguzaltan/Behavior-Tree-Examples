@@ -32,7 +32,7 @@ cmake --build 11-groot2-logging-custom-types/build --parallel
 ## Run
 
 ```bash
-./11-groot2-logging-custom-types/build/bt_simple_pick
+./11-groot2-logging-custom-types/build/bt_11_groot2_logging_custom_types
 ```
 
 You should see:

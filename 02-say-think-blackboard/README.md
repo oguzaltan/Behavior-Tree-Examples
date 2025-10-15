@@ -13,7 +13,7 @@ Build & Run
 ```bash
 cmake -S 02-say-think-blackboard -B 02-say-think-blackboard/build
 cmake --build 02-say-think-blackboard/build --parallel
-./02-say-think-blackboard/build/bt_simple_pick
+./02-say-think-blackboard/build/bt_02_say_think_blackboard
 ```
 
 Notes

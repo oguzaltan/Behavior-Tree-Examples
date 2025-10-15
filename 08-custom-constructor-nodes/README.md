@@ -12,7 +12,7 @@ Files to inspect
 
 - `bt_demo.cpp` — registers `Action_A` and demonstrates the pattern.
 - `dummy_nodes.h` — contains the class declarations for `Action_A` and `Action_B` (constructors, members, and `tick()` declarations).
-- `CMakeLists.txt` — builds the `bt_simple_pick` executable.
+- `CMakeLists.txt` — builds the `bt_08_custom_constructor_nodes` executable.
 - `bt_tree.xml` — (if present) example tree XML used by the demo.
 
 Build (WSL / Bash)
@@ -27,7 +27,7 @@ cmake --build 08-custom-constructor-nodes/build --parallel
 Run
 
 ```bash
-./08-custom-constructor-nodes/build/bt_simple_pick
+./08-custom-constructor-nodes/build/bt_08_custom_constructor_nodes
 ```
 
 Why you saw a linker error (vtable / undefined reference)

@@ -49,7 +49,7 @@ cmake --build 13-threadsafe-blackboard/build --parallel
 ## Run
 
 ```bash
-./13-threadsafe-blackboard/build/bt_simple_pick
+./13-threadsafe-blackboard/build/bt_13_threadsafe_blackboard
 ```
 
 ## Expected output (example)

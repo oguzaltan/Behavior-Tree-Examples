@@ -23,7 +23,7 @@ These examples are intentionally small and focused on demonstrating BehaviorTree
 - `15-substitution-rules-mocking/` — Substitution rules / mocking nodes
 - `16-global-blackboard/` — Global blackboard with @ prefix
 
-Each example builds an executable named `bt_simple_pick` (the project name in the `CMakeLists.txt`).
+Each example builds a uniquely named executable matching the folder's topic (e.g., `bt_01_simple_pick_sequence`).
 
 ## Prerequisites
 
@@ -52,21 +52,21 @@ cmake ..
 make
 ```
 
-When the build succeeds the executable will be placed in `01-simple-pick-sequence/build/` and its name is `bt_simple_pick` (matching the project name in `CMakeLists.txt`).
+When the build succeeds the executable will be placed in `01-simple-pick-sequence/build/` and its name is `bt_01_simple_pick_sequence` (matching the project name in `CMakeLists.txt`).
 
 ## Run
 
 From the repository root, run the example executable (WSL / Linux style):
 
 ```bash
-./01-simple-pick-sequence/build/bt_simple_pick
+./01-simple-pick-sequence/build/bt_01_simple_pick_sequence
 ```
 
 If you prefer to run from inside the build directory:
 
 ```bash
 cd 01-simple-pick-sequence/build
-./bt_simple_pick
+./bt_01_simple_pick_sequence
 ```
 
 Some examples may read `bt_tree.xml` from the source directory or rely on command-line arguments. Check the corresponding `bt_demo.cpp` if you need to pass a different XML file.
@@ -91,4 +91,4 @@ On Windows PowerShell, you can run it under WSL or use the same commands in a Ba
 
 - Missing compiler or wrong C++ standard: The examples require C++17. Ensure your compiler supports `-std=c++17`.
 
-- Permission denied when running the executable: ensure the binary is executable (`chmod +x t01/build/bt_simple_pick`) or run with `./` from the build folder.
+- Permission denied when running the executable: ensure the binary is executable (`chmod +x 01-simple-pick-sequence/build/bt_01_simple_pick_sequence`) or run with `./` from the build folder.

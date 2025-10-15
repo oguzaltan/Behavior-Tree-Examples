@@ -13,7 +13,7 @@ Build & Run
 ```bash
 cmake -S 03-calc-and-print-target -B 03-calc-and-print-target/build
 cmake --build 03-calc-and-print-target/build --parallel
-./03-calc-and-print-target/build/bt_simple_pick
+./03-calc-and-print-target/build/bt_03_calc_and_print_target
 ```
 
 Notes

@@ -54,7 +54,7 @@ cmake --build 14-subtree-model-default-remap/build --parallel
 ## Run
 
 ```bash
-./14-subtree-model-default-remap/build/bt_simple_pick
+./14-subtree-model-default-remap/build/bt_14_subtree_model_default_remap
 ```
 
 ## Expected behavior

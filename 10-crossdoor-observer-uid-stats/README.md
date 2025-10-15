@@ -30,7 +30,7 @@ cmake --build 10-crossdoor-observer-uid-stats/build --parallel
 ## Run
 
 ```bash
-./10-crossdoor-observer-uid-stats/build/bt_simple_pick
+./10-crossdoor-observer-uid-stats/build/bt_10_crossdoor_observer_uid_stats
 ```
 
 ## What you’ll see
