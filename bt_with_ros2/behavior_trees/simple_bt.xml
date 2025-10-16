@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<root BTCPP_format="4" main_tree_to_execute="Main">
+	<BehaviorTree ID="Main">
+		<Sequence>
+			<PrintMessage msg="Hello from ROS 2 + BT.CPP"/>
+		</Sequence>
+	</BehaviorTree>
+	<TreeNodesModel>
+		<Action ID="PrintMessage">
+			<InputPort name="msg"/>
+		</Action>
+	</TreeNodesModel>
+	<SubTreesModel/>
+</root>

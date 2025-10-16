@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="3">
+	<name>bt_with_ros2</name>
+	<version>0.0.1</version>
+	<description>Minimal example using BehaviorTree.CPP within a ROS 2 ament_cmake package.</description>
+	<maintainer email="oguz.altan@fhdw.de">Oguz Altan</maintainer>
+	<license>MIT</license>
+
+	<buildtool_depend>ament_cmake</buildtool_depend>
+
+	<depend>rclcpp</depend>
+	<depend>ament_index_cpp</depend>
+	<depend>behaviortree_cpp</depend>
+
+	<export>
+		<build_type>ament_cmake</build_type>
+	</export>
+</package>

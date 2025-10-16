@@ -16,6 +16,8 @@ Target/
 # Ignore build folders in subdirectories
 **/build/
 **/Build/
+**/install/
+**/log/
 **/bin/
 **/Bin/
 **/out/
