@@ -11,7 +11,7 @@ target/
 Target/
 
 # Ignore .vscode folder
-.vscode/
+# .vscode/
 
 # Ignore build folders in subdirectories
 **/build/
@@ -26,4 +26,4 @@ Target/
 **/Dist/
 **/target/
 **/Target/
-**/.vscode/
+# **/.vscode/
